@@ -6,19 +6,19 @@
 </ion-header>
 
 <ion-content padding>
- <ion-slides #slider spaceBetween="10" slidesPerView="2">
+ <!-- ion-slides #slider spaceBetween="10" slidesPerView="2">
     <ion-slide *ngFor="let slide of slides"
                [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')'}">
       <h2>{{slide.title}}</h2>
     </ion-slide>
-  </ion-slides>
+  </ion-slides -->
 
+  
 <ion-grid fixed>
       <ion-row align-items-stretch>
 
         <ion-col col-12 col-md-6 align-self-stretch align-self-center  approxItemHeight="457px">
 
-		
 		
 		
           <ion-card class="property-card">
@@ -27,16 +27,17 @@
 			<ion-list-header color="primary" center>
 				<ion-title> APP TO GET INSURANCE ON INVOICE </ion-title>			
 			</ion-list-header>
-                <ion-thumbnail item-start>
-                  <img [src]="captureDataUrl"  />
-				  
-                </ion-thumbnail>
-                 
+				 <ion-avatar >
+				<img [src]="chosenPicture || placeholder" onerror="this.src='assets/img/avatar/girl-avatar.png'" />
+    
+                 </ion-avatar>	
+
+                
     
 
-    
-
-    <button ion-button (click)="upload()" *ngIf="captureDataUrl">Upload Invoice</button>
+	<button ion-button (click)="takePicture()" >Take photo of Invoice</button>
+	<button ion-button (click)="getPicture()" >Select Invoice</button>
+    <button ion-button (click)="upload()" *ngIf="chosenPicture">Upload Invoice</button>
 
 	
     
@@ -67,71 +68,18 @@
 			</ion-item>
 			
 			<button ion-button block (click)="createInsureEntry()" id="createinsure">Create Insurance Entry</button >        
-			<button ion-button block (click)="capture()">Take picture of invoice</button>
+			
         <button ion-button block (click)="UpdateInsureEntry()" >Get quote of Insurance</button>        
               </ion-list>
             </ion-card-content>
 
-            <ion-row no-padding>
-              <ion-col col-12 col-lg-auto text-center text-lg-left>
-                <button ion-button clear small color="primary" icon-start (click)="goToPropertyTwitter(property)">
-                  <ion-icon name="logo-twitter"></ion-icon>
-                  Tweet
-                </button>
-              </ion-col>
-              <ion-col col-12 col-lg-auto text-center>
-                <button ion-button clear small color="primary" icon-start (click)="openPropertyShare(property)">
-                  <ion-icon name='share-alt'></ion-icon>
-                  Share
-                </button>
-              </ion-col>
-              <ion-col col-12 col-lg-auto text-center text-lg-right>
-                <button ion-button clear small color="primary" icon-start (click)="openContact(property)">
-                  <ion-icon name='chatboxes'></ion-icon>
-                  Contact
-                </button>
-              </ion-col>
-            </ion-row>
+            
 
           </ion-card>
 
         </ion-col>
       </ion-row>
-	  
-	  <ion-row padding>
-              <ion-col col-12 >
-			      <ion-item>
-				  Native way
-				  </ion-item>
-    <ion-item>
-    <p>{{imageURI}}</p>
-    <button ion-button color="secondary" (click)="getImage()">Get Image</button>
-  </ion-item>
-  <ion-item>
-    <h4>Image Preview</h4>
-    <img src="{{imageFileName}}" *ngIf="imageFileName" alt="Ionic File" width="300" />
-  </ion-item>
-  <ion-item>
-    <button ion-button (click)="uploadFile()">UploadImage</button>
-  </ion-item>            
-              </ion-col>
-            </ion-row>
-		<ion-row padding>
-              <ion-col col-12 >
-			  <ion-item>
-				  Native way download.  (set the image name)
-				  </ion-item>
-		
-<ion-card-content>
-      <img src="assets/img/pug.jpg" alt="Cute Pug">
-      <button ion-button (click)="downloadImage('pug.jpg')" color="secondary">Download image</button>
-      <button ion-button (click)="retrieveImage('pug.jpg')" color="secondary">Retrieve downloaded image</button>
-    </ion-card-content>
-	
-      </ion-col>
-            </ion-row>
-        
-	  <ion-row no-padding>
+	   <ion-row no-padding>
               <ion-col col-12 >
       <ion-item>
 				  General way
@@ -139,14 +87,10 @@
 	    <ion-item>
 	  <div class="form-group">
    <label for="single">single</label>
-   <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader" />                                  
+   <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader"  />                                  
 </div>
 </ion-item>
 <ion-item>
-	<div class="form-group">
-                                    <label for="multiple">Multiple</label>
-                                    <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="uploader" multiple  />
-                                </div>
 			</ion-item>					
       <ion-item>
       </ion-item>
@@ -244,14 +188,11 @@
 	    <ion-item>
 	  <div class="form-group">
    <label for="single">single</label>
-   <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="imageuploader" />                                  
+   <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="imageuploader"  />                                  
 </div>
 </ion-item>
 <ion-item>
-	<div class="form-group">
-                                    <label for="multiple">Multiple</label>
-                                    <input type="file" class="form-control" name="multiple" ng2FileSelect [uploader]="imageuploader" multiple  />
-                                </div>
+	
 			</ion-item>					
       <ion-item>
       </ion-item>
@@ -338,8 +279,7 @@
                                 </button>
                             </div>
 				</ion-col>
-            </ion-row>
-			
+            </ion-row>	
 			
 			
     </ion-grid>
