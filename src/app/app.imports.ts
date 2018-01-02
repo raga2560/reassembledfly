@@ -18,6 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { GoogleMaps } from '@ionic-native/google-maps';
 
+
 // Directives
 import { SlidingDrawer } from '../components/sliding-drawer/sliding-drawer';
 import { Autosize } from '../components/autosize/autosize';
@@ -26,11 +27,13 @@ import { Autosize } from '../components/autosize/autosize';
 import { SwingModule } from 'angular2-swing';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 export const MODULES = [
   SwingModule,
   BrowserModule,
   HttpModule,
+  IonicStorageModule,
 ];
 
 export const PROVIDERS = [
@@ -50,6 +53,8 @@ export const PROVIDERS = [
   StatusBar,
   SplashScreen,
   GoogleMaps,
+  
+ 
 ];
 
 export const DIRECTIVES = [

@@ -53,11 +53,11 @@ export class InsurancesPage {
         page: 'TransitInsurancePage'
       },
       {
-        title: 'Custom pagination',
+        title: 'Flight miss Insurance',
         page: 'SlideCustomPaginationPage'
       },
       {
-        title: 'Free mode slide (no fixed positions)',
+        title: 'Trade Insurance',
         page: 'SlideFreeModePage'
       },
       {

@@ -13,7 +13,8 @@ export class MyApp {
 
   rootPage: any = 'HomePage';
   activePage = new Subject();
-
+loggedinpages: Array<{ title: string, component: any, active: boolean, icon: string }>;
+loggedoutpages: Array<{ title: string, component: any, active: boolean, icon: string }>;
   pages: Array<{ title: string, component: any, active: boolean, icon: string }>;
   rightMenuItems: Array<{ icon: string, active: boolean }>;
   state: any;
@@ -48,6 +49,66 @@ export class MyApp {
      
       { title: 'Logout',
         component: 'IonicOfficialComponentsPage', active: false, icon: 'ionic' },
+	  { title: '!Terms', component: 'AccordionListPage', active: false, icon: 'map' },
+      { title: '!DataEntry', component: 'IonicNativePage', active: false, icon: 'ionic' }, 
+      
+       { title: '!Submission', component: 'MiscellaneousListPage', active: false, icon: 'bookmarks' },
+      { title: '!Offers of insurance', component: 'ModalWithNavigationPage', active: false, icon: 'book' },
+      { title: '!PayTM', component: 'PopupFabPage', active: false, icon: 'map' },
+      { title: '!AutosizingTextarea', component: 'AutosizingTextarea', active: false, icon: 'basket' },
+      { title: '!Alert', component: 'AlertsPage', active: false, icon: 'beer' },
+      
+      { title: '!UploadImage', component: 'GetImagePage', active: false, icon: 'camera' },
+	  { title: '!UploadPDF', component: 'GetImagePage', active: false, icon: 'camera' },
+	  { title: '!CreditCard', component: 'CreditCardScanPage', active: false, icon: 'power' },
+      // Removed for now as there were breaking changes in slides
+      { title: '!BarcodeScan', component: 'BarcodeScannerPage', active: false, icon: 'calendar'}, 
+	  { title: '!!EnrollScheme', component: 'BarcodeScannerPage', active: false, icon: 'calendar'}, 
+	  { title: '!!List Opportunities', component: 'BarcodeScannerPage', active: false, icon: 'calendar'}, 
+	  { title: '!!See Records->offer', component: 'BarcodeScannerPage', active: false, icon: 'calendar'}, 
+      
+      
+    ];
+	
+	this.loggedinpages = [
+      { title: 'Home', component: 'HomePage', active: true, icon: 'home' },
+	  { title: 'Profile', component: 'ProfileSettingsPage', active: false, icon: 'camera' },
+	  // { title: 'Login', component: 'LoginSliderPage', active: false, icon: 'archive' },
+	  { title: 'Insurance', component: 'InsurancesPage', active: false, icon: 'contact' },
+      { title: 'Status', component: 'StatusPage', active: false, icon: 'body' },
+     
+      { title: 'Logout',
+        component: 'IonicOfficialComponentsPage', active: false, icon: 'ionic' },
+	  { title: '!Terms', component: 'AccordionListPage', active: false, icon: 'map' },
+      { title: '!DataEntry', component: 'IonicNativePage', active: false, icon: 'ionic' }, 
+      
+       { title: '!Submission', component: 'MiscellaneousListPage', active: false, icon: 'bookmarks' },
+      { title: '!Offers of insurance', component: 'ModalWithNavigationPage', active: false, icon: 'book' },
+      { title: '!PayTM', component: 'PopupFabPage', active: false, icon: 'map' },
+      { title: '!AutosizingTextarea', component: 'AutosizingTextarea', active: false, icon: 'basket' },
+      { title: '!Alert', component: 'AlertsPage', active: false, icon: 'beer' },
+      
+      { title: '!UploadImage', component: 'GetImagePage', active: false, icon: 'camera' },
+	  { title: '!UploadPDF', component: 'GetImagePage', active: false, icon: 'camera' },
+	  { title: '!CreditCard', component: 'CreditCardScanPage', active: false, icon: 'power' },
+      // Removed for now as there were breaking changes in slides
+      { title: '!BarcodeScan', component: 'BarcodeScannerPage', active: false, icon: 'calendar'}, 
+	  { title: '!!EnrollScheme', component: 'BarcodeScannerPage', active: false, icon: 'calendar'}, 
+	  { title: '!!List Opportunities', component: 'BarcodeScannerPage', active: false, icon: 'calendar'}, 
+	  { title: '!!See Records->offer', component: 'BarcodeScannerPage', active: false, icon: 'calendar'}, 
+      
+      
+    ];
+	
+	
+	this.loggedoutpages = [
+      { title: 'Home', component: 'HomePage', active: true, icon: 'home' },
+	  { title: 'Profile', component: 'ProfileSettingsPage', active: false, icon: 'camera' },
+	  { title: 'Login', component: 'LoginSliderPage', active: false, icon: 'archive' },
+	  { title: 'Insurance', component: 'InsurancesPage', active: false, icon: 'contact' },
+      { title: 'Status', component: 'StatusPage', active: false, icon: 'body' },
+     
+     // { title: 'Logout',         component: 'IonicOfficialComponentsPage', active: false, icon: 'ionic' },
 	  { title: '!Terms', component: 'AccordionListPage', active: false, icon: 'map' },
       { title: '!DataEntry', component: 'IonicNativePage', active: false, icon: 'ionic' }, 
       

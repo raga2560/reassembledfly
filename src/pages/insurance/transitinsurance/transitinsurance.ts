@@ -131,7 +131,7 @@ fileuploadFile: any;
        //able to deal with the server response.
     this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
             console.log("ImageUpload:uploaded:", item, status, response);
-			alert(JSON.stringify(response));
+			//alert(JSON.stringify(response));
         };
    this.insureentry = new Insurelist();
   
