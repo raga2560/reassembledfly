@@ -2,7 +2,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { AlertController, App, LoadingController, NavController, Slides, IonicPage } from 'ionic-angular';
 import { Auth } from '../../../providers/auth.passport';
-import { HomePage } from '../../home/home';
+//import { HomePage } from '../../home/home';
 
 @IonicPage()
 @Component({
@@ -52,7 +52,7 @@ export class LoginSliderPage {
 
   presentLoading(message) {
     const loading = this.loadingCtrl.create({
-      duration: 500
+      duration: 100
     });
 
     loading.onDidDismiss(() => {
@@ -90,7 +90,8 @@ export class LoginSliderPage {
   	this.authService.createAccount(details).then((result) => {
       this.loading.dismiss();
       console.log(result);
-	  this.navCtrl.push(HomePage);
+	  this.presentLoading('Thanks for signing up!');
+	  this.navCtrl.push('HomePage'	);
       // this.navCtrl.setRoot(HomePage);
   	}, (err) => {
   		this.loading.dismiss();
@@ -110,6 +111,8 @@ export class LoginSliderPage {
 		this.authService.checkAuthentication().then((res) => {
 			console.log("Already authorized");
 			this.loading.dismiss();
+			this.presentLoading('Already authorized');
+			
 			this.navCtrl.push('HomePage');
 			// this.navCtrl.setRoot(HomePage);
 		}, (err) => {
@@ -130,6 +133,7 @@ export class LoginSliderPage {
         this.authService.login(credentials).then((result) => {
         	this.loading.dismiss();
             console.log(result);
+			this.presentLoading('Thanks for signing up!');
 			this.navCtrl.push('HomePage');
         	//this.navCtrl.setRoot(HomePage);
         }, (err) => {

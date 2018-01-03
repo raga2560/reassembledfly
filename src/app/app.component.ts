@@ -4,6 +4,7 @@ import { Nav, Platform, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Subject } from 'rxjs';
+import { Auth } from '../providers/auth.passport';
 
 @Component({
   templateUrl: 'app.html'
@@ -13,9 +14,9 @@ export class MyApp {
 
   rootPage: any = 'HomePage';
   activePage = new Subject();
-loggedinpages: Array<{ title: string, component: any, active: boolean, icon: string }>;
-loggedoutpages: Array<{ title: string, component: any, active: boolean, icon: string }>;
-  pages: Array<{ title: string, component: any, active: boolean, icon: string }>;
+loggedinpages: Array<{ title: string, component: any, active: boolean, icon: string , logsOut?: boolean}>;
+loggedoutpages: Array<{ title: string, component: any, active: boolean, icon: string, logsOut?: boolean }>;
+  pages: Array<{ title: string, component: any, active: boolean, icon: string, logsOut?: boolean }>;
   rightMenuItems: Array<{ icon: string, active: boolean }>;
   state: any;
 
@@ -24,6 +25,7 @@ loggedoutpages: Array<{ title: string, component: any, active: boolean, icon: st
     public statusBar: StatusBar,
     public splashscreen: SplashScreen,
     public global: AppState,
+	public authService: Auth,
     public menuCtrl: MenuController
   ) {
     this.initializeApp();
@@ -47,8 +49,7 @@ loggedoutpages: Array<{ title: string, component: any, active: boolean, icon: st
 	  { title: 'Insurance', component: 'InsurancesPage', active: false, icon: 'contact' },
       { title: 'Status', component: 'StatusPage', active: false, icon: 'body' },
      
-      { title: 'Logout',
-        component: 'IonicOfficialComponentsPage', active: false, icon: 'ionic' },
+      { title: 'Logout',   component: 'HomePage', active: false, icon: 'ionic', logsOut: true },
 	  { title: '!Terms', component: 'AccordionListPage', active: false, icon: 'map' },
       { title: '!DataEntry', component: 'IonicNativePage', active: false, icon: 'ionic' }, 
       
@@ -153,6 +154,10 @@ loggedoutpages: Array<{ title: string, component: any, active: boolean, icon: st
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
     this.activePage.next(page);
+	if (page.logsOut === true) {
+      // Give the menu time to close before changing to logged out
+      this.authService.logout();
+    }
   }
 
   rightMenuClick(item) {

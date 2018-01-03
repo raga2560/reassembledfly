@@ -6,6 +6,7 @@ import { ToastService } from '../providers/util/toast.service';
 import { AlertService } from '../providers/util/alert.service';
 import { CameraProvider } from '../providers/util/camera.provider';
 import { NativeGoogleMapsProvider } from '../providers/native-google-maps/native-google-maps';
+import { Auth } from '../providers/auth.passport';
 // import { InsurelistService } from '../providers/insurelist.service';
 
 // Ionic native providers
@@ -41,6 +42,7 @@ export const PROVIDERS = [
   ToastService,
   AppState,
   CameraProvider,
+  Auth,
 //  InsurelistService,
   NativeGoogleMapsProvider,
 

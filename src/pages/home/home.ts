@@ -48,21 +48,18 @@ export class HomePage {
       //   title: 'Carousel',
       //   page: 'SlideCarouselPage'
       // },
-      {
-        title: 'Insurance',
-        page: 'InsurancesPage'
-      },
+      
       {
         title: 'Login',
         page: 'LoginSliderPage'
       },
+	  {
+        title: 'Insurances',
+        page: 'InsurancesPage'
+      },
       {
         title: 'Status',
         page: 'StatusPage'
-      },
-      {
-        title: 'Logout',
-        page: 'SliderListPage'
       }
       // {
       //   title: 'Photo Gallery (not working)',
