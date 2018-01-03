@@ -24,7 +24,11 @@ export class LoginSliderPage {
 	public navCtrl: NavController,
 	public authService: Auth,
     public app: App
-  ) { }
+  ) {
+	
+		this.role = 'creator';
+	  
+	}
 
   // Slider methods
   @ViewChild('slider') slider: Slides;
@@ -106,7 +110,7 @@ export class LoginSliderPage {
 		this.authService.checkAuthentication().then((res) => {
 			console.log("Already authorized");
 			this.loading.dismiss();
-			this.navCtrl.push(HomePage);
+			this.navCtrl.push('HomePage');
 			// this.navCtrl.setRoot(HomePage);
 		}, (err) => {
 			console.log("Not already authorized");
@@ -126,7 +130,7 @@ export class LoginSliderPage {
         this.authService.login(credentials).then((result) => {
         	this.loading.dismiss();
             console.log(result);
-			this.navCtrl.push(HomePage);
+			this.navCtrl.push('HomePage');
         	//this.navCtrl.setRoot(HomePage);
         }, (err) => {
         	this.loading.dismiss();

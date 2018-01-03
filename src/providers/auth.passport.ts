@@ -28,7 +28,7 @@ export class Auth {
 			let headers = new Headers();
 			headers.append('Authorization', this.token);
 
-			this.http.get('https://YOUR_HEROKU_APP.herokuapp.com/api/auth/protected', {headers: headers})
+			this.http.get('http://localhost:8081/api/auth/protected', {headers: headers})
 				.subscribe(res => {
 					resolve(res);
 				}, (err) => {
@@ -48,7 +48,7 @@ export class Auth {
 	    let headers = new Headers();
 	    headers.append('Content-Type', 'application/json');
 
-	    this.http.post('https://YOUR_HEROKU_APP.herokuapp.com/api/auth/register', JSON.stringify(details), {headers: headers})
+	    this.http.post('http://localhost:8081/api/auth/register', JSON.stringify(details), {headers: headers})
 	      .subscribe(res => {
 
 	      	let data = res.json();
@@ -85,7 +85,7 @@ export class Auth {
 	    let headers = new Headers();
 	    headers.append('Content-Type', 'application/json');
 
-	    this.http.post('https://YOUR_HEROKU_APP.herokuapp.com/api/auth/login', JSON.stringify(credentials), {headers: headers})
+	    this.http.post('http://localhost:8081/api/auth/login', JSON.stringify(credentials), {headers: headers})
 	      .subscribe(res => {
 
 	      	let data = res.json();

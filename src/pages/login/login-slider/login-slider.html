@@ -36,8 +36,8 @@
         <ion-slide class="swiper-no-swiping">
           <div style="padding: 20% 32px 32px 32px">
             <ion-item>
-              <ion-label floating>Username</ion-label>
-              <ion-input type="text"></ion-input>
+              <ion-label floating>E-mail</ion-label>
+              <ion-input type="email"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label floating>Password</ion-label>
@@ -52,7 +52,7 @@
           <div style="padding: 20% 32px 32px 32px">
             <ion-item>
               <ion-label floating>E-mail</ion-label>
-              <ion-input [(ngModel)]="email" placeholder="email" type="email"></ion-input>
+              <ion-input [(ngModel)]="email" type="email"></ion-input>
             </ion-item>
             <button ion-button block round (click)="resetPassword()" color="light" class="login-button">RESET PASSWORD</button>
             <button ion-button clear (click)="slidePrevious()" color="light" class="goback-button"><ion-icon name="arrow-back"></ion-icon> GO BACK</button>
@@ -67,16 +67,16 @@
       </button>
       <div style="padding: 32px">
         <ion-item>
-          <ion-label floating>Username</ion-label>
-          <ion-input [(ngModel)]="email" placeholder="email" type="text" ></ion-input>
+          <ion-label floating>E-mail</ion-label>
+          <ion-input [(ngModel)]="email"  type="email" ></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating>Password</ion-label>
-          <ion-input [(ngModel)]="password" placeholder="password" type="password"></ion-input>
+          <ion-input [(ngModel)]="password"  type="password"></ion-input>
         </ion-item>
         <ion-item class="margin-bottom">
           <ion-label floating>Confirm Password</ion-label>
-          <ion-input [(ngModel)]="password" placeholder="password" type="password"></ion-input>
+          <ion-input [(ngModel)]="password"  type="password"></ion-input>
         </ion-item>
         <button ion-button block round (click)="signup()" color="light" class="login-button">SIGN UP</button>
       </div>
